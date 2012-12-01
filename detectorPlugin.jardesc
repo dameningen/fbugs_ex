@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="fbugs_ex/fbugs_ex.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/fbugs_ex/detectorPlugin.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <file path="/fbugs_ex/messages.xml"/>
+        <javaElement handleIdentifier="=fbugs_ex/src\/main\/java"/>
+        <file path="/fbugs_ex/findbugs.xml"/>
+    </selectedElements>
+</jardesc>

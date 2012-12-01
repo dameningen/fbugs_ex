@@ -1,0 +1,11 @@
+<FindbugsPlugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="findbugsplugin.xsd" pluginid="edu.umd.cs.findbugs.pluginTutorial"
+    provider="FindBugs Tutorial" website="http://findbugs.sourceforge.net">
+
+    <Detector class="sample.DetectorTutorial" reports="TUTORIAL_BUG" />
+    <Detector class="sample.LengthCompareDetector" reports="LENGTH_COMPARE" />
+
+    <BugPattern type="TUTORIAL_BUG" abbrev="TU" category="CORRECTNESS" />
+    <BugPattern type="LENGTH_COMPARE" abbrev="LC" category="CORRECTNESS" />
+
+</FindbugsPlugin>

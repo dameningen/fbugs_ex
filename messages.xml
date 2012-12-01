@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="messagecollection.xsd">
+
+    <Plugin>
+        <ShortDescription>FindBugs Plugin Tutorial Plugin</ShortDescription>
+        <Details>Provides detectors as part of the FindBugs detector
+            plugin
+            tutorial.
+        </Details>
+    </Plugin>
+
+    <Detector class="sample.DetectorTutorial">
+        <Details>
+            Finds instances of BigDecimals being created
+            with doubles.
+        </Details>
+    </Detector>
+
+    <BugPattern type="TUTORIAL_BUG">
+        <ShortDescription>BigDecimal created from double</ShortDescription>
+        <LongDescription>BigDecimal created from double in {1}</LongDescription>
+        <Details>
+            <![CDATA[
+            <p>Due to the way double-precision floating point values are represented in Java, creating a new BigDecimal from a double is unreliable and may produce surprising results.</p>
+            ]]>
+        </Details>
+    </BugPattern>
+
+    <BugCode abbrev="TU">Tutorial</BugCode>
+
+
+    <Detector class="sample.LengthCompareDetector">
+        <Details>
+                            数値比較を発見
+        </Details>
+    </Detector>
+
+    <BugPattern type="LENGTH_COMPARE">
+        <ShortDescription>短い説明</ShortDescription>
+        <LongDescription>長い説明 {0} {1}</LongDescription>
+        <Details>
+            <![CDATA[
+            <p>何か説明とか。</p>
+            ]]>
+        </Details>
+    </BugPattern>
+
+    <BugCode abbrev="LC">LengthCompare</BugCode>
+
+</MessageCollection>
