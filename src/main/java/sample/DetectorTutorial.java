@@ -8,7 +8,7 @@ import edu.umd.cs.findbugs.OpcodeStack;
 import edu.umd.cs.findbugs.bcel.OpcodeStackDetector;
 
 /**
- * 
+ *
  */
 public class DetectorTutorial extends OpcodeStackDetector {
     private BugReporter bugReporter;
@@ -25,10 +25,13 @@ public class DetectorTutorial extends OpcodeStackDetector {
                 && getClassConstantOperand().equals("java/math/BigDecimal")
                 && getNameConstantOperand().equals("<init>")
                 && getSigConstantOperand().equals("(D)V")) {
+
             OpcodeStack.Item top = stack.getStackItem(0);
             System.out.println("■top：" + top);
+
             Object value = top.getConstant();
             System.out.println("■value：" + value);
+
             if (value instanceof Double) {
                 double arg = ((Double) value).doubleValue();
                 String dblString = Double.toString(arg);
@@ -41,8 +44,8 @@ public class DetectorTutorial extends OpcodeStackDetector {
                             && dblString.toUpperCase().indexOf("E") == -1;
                     bugReporter.reportBug(new BugInstance(this, "TUTORIAL_BUG",
                             scary ? NORMAL_PRIORITY : LOW_PRIORITY)
-                            .addClassAndMethod(this).addString(dblString)
-                            .addSourceLine(this));
+                                    .addClassAndMethod(this).addString(dblString)
+                                    .addSourceLine(this));
                 }
             }
         }

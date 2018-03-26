@@ -7,7 +7,7 @@ import edu.umd.cs.findbugs.BugReporter;
 import edu.umd.cs.findbugs.BytecodeScanningDetector;
 
 /**
- * 
+ *
  */
 public class LengthCompareDetector extends BytecodeScanningDetector {
 
@@ -41,7 +41,7 @@ public class LengthCompareDetector extends BytecodeScanningDetector {
         // bipush
         if (seen == BIPUSH) {
             int value = getIntConstant();
-            System.out.println("value[" + value + "]");
+            System.out.println("★value[" + value + "]");
             if (value == 11 || value == 13 || value == 16) {
                 binpushPC = getPC();
                 System.out.println("■binpushPC:" + binpushPC);
@@ -62,9 +62,11 @@ public class LengthCompareDetector extends BytecodeScanningDetector {
         if (seen == IF_ICMPEQ || seen == IF_ICMPGE || seen == IF_ICMPGT
                 || seen == IF_ICMPLE || seen == IF_ICMPLT || seen == IF_ICMPNE) {
             if (getPC() >= binpushPC + 2 && getPC() < binpushPC + 7) {
-                bugReporter.reportBug(new BugInstance(this, "LENGTH_COMPARE",
-                        NORMAL_PRIORITY).addClassAndMethod(this)
-                        .addString("固定長比較？").addSourceLine(this));
+                BugInstance bugInstance = new BugInstance(this, "LENGTH_COMPARE", NORMAL_PRIORITY);
+                bugInstance.addClassAndMethod(this);
+                bugInstance.addSourceLine(this);
+                bugInstance.addString("固定長比較？");
+                bugReporter.reportBug(bugInstance);
             }
 
         }
